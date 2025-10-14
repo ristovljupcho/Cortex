@@ -22,10 +22,11 @@ async def on_ready():
 
 # Replace this with your actual channel ID
 WELCOME_CHANNEL_ID = 802286651178352650
+LEAVE_CHANNEL_ID = 802286704915382323
 
 @bot.event
 async def on_member_join(member: discord.Member):
-    # Get the channel by ID
+    server_name = member.guild.name
     channel = member.guild.get_channel(WELCOME_CHANNEL_ID)
     if channel:
         await channel.send(f"Welcome to the server, {member.mention}! 🎉")
@@ -34,7 +35,7 @@ async def on_member_join(member: discord.Member):
 
     # Send DM
     try:
-        await member.send(f"Hello {member.name}, welcome to {member.guild.name}! 🎉")
+        await member.send(f"Hello {member.name}, welcome to {server_name}! 🎉")
     except discord.Forbidden:
         print(f"Couldn't send DM to {member.name}")
 
@@ -44,12 +45,15 @@ async def on_member_join(member: discord.Member):
         await member.add_roles(role)
         print(f"Assigned role '{role.name}' to {member.name}")
     else:
-        print(f"Role '{predefinedRole}' not found in guild '{member.guild.name}'")
+        print(f"Role '{predefinedRole}' not found in guild '{server_name}'")
 
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f"Hello, {ctx.author.mention}!")
+@bot.event
+async def on_member_remove(member: discord.Member):
+    channel = member.guild.get_channel(LEAVE_CHANNEL_ID)
+    if channel:
+        await channel.send(f"{member.name} has left the server. 🥲")
+    else:
+        print(f"Leave channel not found")
 
 @bot.command()
 async def add_role(ctx):
