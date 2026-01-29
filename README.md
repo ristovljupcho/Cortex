@@ -51,18 +51,6 @@ Create a `.env` file in the project root and add your Discord bot token:
 DISCORD_TOKEN=your_discord_bot_token_here
 ```
 
-### 4️⃣ Set Up Folder Structure  
-Make sure your project has this structure:
-```
-.
-├── cogs/
-│   ├── member_management.py
-│   └── role_poll_management.py
-├── main.py
-├── .env
-└── README.md
-```
-
 ---
 
 ## 🧠 Code Overview  
@@ -138,14 +126,8 @@ Feel free to fork this repo, open issues, or submit pull requests.
 
 ## 🧑‍💻 Author  
 
-**Developed by:** [Your Name](https://github.com/<your-username>)  
+**Developed by:** ristovljupcho
 💬 Feel free to reach out for feature suggestions or improvements!  
-
----
-
-## 🪙 License  
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
