@@ -1,8 +1,8 @@
 import discord
-from discord.ext import commands
 import logging
-from dotenv import load_dotenv
 import os
+from discord.ext import commands
+from dotenv import load_dotenv
 
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
@@ -18,14 +18,17 @@ intents.members = True
 # Bot setup
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+
 # Load cogs
 @bot.event
 async def on_ready():
     print(f"✅ Logged in as {bot.user.name}")
 
+
 async def load_extensions():
     await bot.load_extension("cogs.member_management")
     await bot.load_extension("cogs.role_poll_management")
+
 
 # Run
 async def main():
@@ -33,5 +36,7 @@ async def main():
         await load_extensions()
         await bot.start(token)
 
+
 import asyncio
+
 asyncio.run(main())
