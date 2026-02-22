@@ -11,6 +11,9 @@ token = os.getenv("DISCORD_TOKEN")
 #TODO: TEST COMMENT
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 
+
+temp = 5 + 5
+
 # Intents
 intents = discord.Intents.default()
 intents.message_content = True

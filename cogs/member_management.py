@@ -5,7 +5,7 @@ WELCOME_CHANNEL_ID = 802286651178352650
 LEAVE_CHANNEL_ID = 802286704915382323
 PREDEFINED_ROLES = ["Member", "DJ"]
 
-
+dadadadadadadadada
 class Events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
