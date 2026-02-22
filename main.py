@@ -8,6 +8,7 @@ load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 
 # Logging setup
+#TODO: TEST COMMENT
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 
 # Intents
